@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang = "de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="Spiel" content="width=device-width, initial-scale=1">
+        <title>SchereSteinPapier</title>
+        <link rel="stylesheet" href="Style/stile.css" type="text/css" media="screen"/>
+    </head>
+    <body>
+        <header>
+            <h1> Das Spiel</h1>
+            
+        </header>
+        <main>
+        
+        <dialog>
+            <input class="modalc" type="text" id="modal">
+        </dialog>
+
+        <div class='buttonbox'> 
+            <input class="item" onclick="Benutzer(this)" id="wahl" value = 0 type="image" 
+            src="https://upload.wikimedia.org/wikipedia/commons/3/35/Scissors_Animation.gif" 
+            alt="Schere">
+            
+            
+            <input class="item" onclick="Benutzer(this)" id="wahl" value = 1 type="image"
+            src= "https://i1.wp.com/www.jeffreythompson.org/blog/wp-content/uploads/2010/07/EB19.gif?ssl=1"
+            alt="Stein">
+            
+            <input class="item" onclick="Benutzer(this)" id="wahl" value= 2 type="image"
+            src="http://clipart-library.com/images/BiarnndaT.gif"
+            alt= "Papier">
+        </div>   
+
+            <!--button class="e" onclick="ende(this)" id = "wahl">Neues Spiel</button-->
+            <div class="info"> 
+                <p class="turn">Runde:</p>
+                <p class="turn" id = "turn"></p>
+            </div>
+            <p class="rest" id = "rest"></p>
+            
+            <h2 class = "spieler">Der Spielstand:</h2>
+        <div class="counter">
+            <div class = "spieler">
+                <h3  id = "spu">SPIELER</h3>
+                <p id="pku">0</p>
+            </div>
+            <div class = "spieler">
+                <h3>COMPUTER</h3>
+                <p id="pkc">0</p>
+            </div>
+        </div>
+        
+        </main>
+        <script src="JS/SchereSteinPapier.js"> </script>
+
+    </body>
+</html>

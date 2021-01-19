@@ -1,0 +1,41 @@
+<div class="modal fade" id="questionModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title">Rechenaufgabe</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="post" action="save.php">
+                <div class="modal-body">
+                    <!-- Daten die ich mitschicke
+                        Runden
+                        Question
+                        Username
+                        Ergebnis Frage
+                    -->
+                    <input class="form-control" name="roundInput" type="hidden" id="roundInput">
+                    <input class="form-control" name="usernameInput" type="hidden" id="usernameInput">
+                    <input class="form-control" name="resultInput" type="hidden" id="resultInput">
+
+                    <!-- Ausgabe & Eingabe
+                        Rechenaufgabe
+                        Antwort vom User
+                    -->
+                    <input class="form-control my-2" name="questionInput" id="questionInput" type="text" aria-label="readonly input example" readonly>
+                    <input class="form-control my-2" name="userInput" id="userInput" type="number">
+                    <p id="information"></p>
+                </div>
+                <div class="modal-footer d-grid g   ap-2">
+                    <!-- Buttons
+                        Close
+                        Ergebnis checken
+                        Abspeichern
+                    -->
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Mach zu das Ding</button>
+                    <button type="button" class="btn btn-info" onclick="checkQuestion()">Ergebnis überprüfen</button>
+                    <button type="reset" class="btn btn-success disabled" onclick="saveIT()" id="saveToDB" data-bs-dismiss="modal">Speicher das in der Datenbank</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

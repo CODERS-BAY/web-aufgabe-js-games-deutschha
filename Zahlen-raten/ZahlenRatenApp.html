@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="Spiel" content="width=device-width, initial-scale=1">
+        <title>SchereSteinPapier</title>
+        <link rel="stylesheet" href="Style/stile.css" type="text/css" media="screen"/>
+        <style>
+            body{background-color: darkolivegreen;}
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1> ZAHLENRATEN</h1>
+            <h2> Das Spiel </h2>
+        </header>
+        <main>
+            <div>
+                <label name="eingabe" id="eingabe">:</label>
+                <p>Lege die höchste Zahl fest die du erraten willst</p>
+                <input type="text" name="eingabe" id="ein">
+                <Button id="eingabe" onclick="random()" name ="eingabe">STARTEN</Button>
+                <br>
+                <br>
+                <p id = "rand"></p>
+            </div>
+        </main>
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/ZahlenRaten.js"> </script>
+        <script>
+            "use strikt";
+            let runden = prompt('Wieviele Runden willst du spielen?');
+            let zaehler = 1; 
+            let i = 0;
+            // Offen Zufallszahl ändert sich :):); 
+            // Beschreibung der Auswertung
+            
+            let zufallszahl = random();
+
+            eingabefelder(runden);
+            versteckt();
+            console.log('bis hierher');
+            
+            function eingabefelder (runden){
+                
+                while(i < runden){
+                    i ++;
+                    console.log("runden: ", runden)
+                    let eingabe = document.createElement('INPUT');
+                    eingabe.setAttribute("type","text");
+                    eingabe.setAttribute("id", i);
+                    document.body.appendChild(eingabe);
+                    let button = document.createElement('Button');
+                    let info = document.createTextNode("Eingabe");
+                    button.setAttribute("onclick","auswerten()");
+                    button.setAttribute('type','button');
+                    button.appendChild(info);
+                    document.body.appendChild(button);
+                    document.write('<br><br>' );
+                    console.log('wert aus eingabe' & i);
+                    
+                }
+            }
+
+            function auswerten(){
+                //hier wird der WErt aus dem Feld übernommen
+                i = i - 1;
+                console.log(zaehler);
+                wert = document.getElementById(zaehler).value;
+                console.log(wert, 'zufallszahl', random());
+                zaehler++;
+                if (zaehler <= runden){
+                    if(wert < random){
+                        $('p').text('Der eingegebene Wert ist zu klein');
+                    }
+                    else if(wert > random){
+                        $('p').text('Der eingegeben WErt ist zu groß');
+                    }
+                    else{
+                        $('p').text('GEWONNEN DU HAST die ZAHL ERRATEN');
+                        document.write('GEWONNEN DU HAST die ZAHL ERRATEN');
+                    }
+                    
+                    document.getElementById(zaehler).style.visibility = 'visible';
+                }
+                else{
+                        document.write('Lieder nicht erraten :(');
+                        
+                }
+            }
+               
+           
+            function random(){
+                let min = 0;
+                let max = document.getElementById('ein').value;
+                let hidenum = Math.floor(Math.random() * (max-min))+ min;
+                //rand.innerHTML = hidenum;
+                console.log ('zufallszahl' , hidenum);
+                return hidenum;
+            }
+
+            function versteckt(){
+                for (j = 1;j <= runden; j++ ){
+                    if (j != zaehler){
+                        document.getElementById(j).style.visibility = 'hidden';
+                        console.log('ausblenden' ,j , " i ist ", i);
+                    }
+                }
+            }
+        </script>
+    </body>
+    
+</html>     
